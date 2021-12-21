@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search note
+{% endblock title %}
+
+
+
+{% block content %}
+<div class="p-3">
+    <b>{{ user_note|length }}</b> results found!
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Data</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for note in user_note %}
+        <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ note.data }}</td>
+            <td>{{ note.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
